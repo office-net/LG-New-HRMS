@@ -1,0 +1,85 @@
+/* 
+  Localizable.strings
+  IOS
+
+  Created by Netcommlabs on 08/12/22.
+  
+*/
+//+++++++++++ Profile +++++++++++++
+"DepartmentKey" = "विभाग";
+"GradeKey" = "श्रेणी";
+"DOB" = "जन्म तिथि";
+"EmployeCode" = "कर्मचारी कोड";
+"EmployeStatus" = "कर्मचारी की स्थिति";
+"ReportingManager" = "रिपोर्टिंग प्रबंधक";
+"HOD" = "विभागाध्यक्ष";
+"DOJ" = "शामिल होने की तिथि" ;
+"EmailId" = "ईमेल आईडी";
+"MobileNumber" = "मोबाइल नंबर";
+"Location" = "स्थान";
+"EmployeeName" = " कर्मचारी का नाम" ;
+"EmployeeDetails" = " कर्मचारी विवरण";
+"Profile" = "प्रोफ़ाइल" ;
+"Gender" = "लिंग" ;
+"BloodGroup" = "रक्त समूह";
+"ContactDetails" = " संपर्क विवरण";
+"OtherDetails" = " अन्य विवरण";
+//+++++++++++++++++++++++++++++++++++
+
+//+++++++++++ Home VC ++++++++++++++
+"PunchInOut" = "पंच इन आउट";
+"PunchInt" = "पंच इन";
+"PunchOut" = "पंच आउट";
+
+"LeaveAndRegularasation" = "छुट्टी और नियमितीकरण";
+"Leave" = "अवकाश";
+"CompOff" = "कॉम्प ऑफ़";
+"ShortLeave" = "शॉर्ट लीव";
+"Regularsation" = "नियमितीकरण";
+"Management" = "प्रबंधन";
+"Directory" = "निर्देशिका";
+"Attendance" = "उपस्थिति";
+"MyTeam" = "मेरी टीम";
+"Gallery" = "गैलरी";
+"Anniversary" = "वर्षगांठ";
+"Birthday" = "जन्मदिन";
+
+"Notes" = "नोट्स";
+"Adminservices" = "व्यवस्थापक सेवाएं";
+"HelpDesk" = "हेल्प डेस्क";
+"ConferenceRomm" = "सम्मेलन कक्ष";
+"Stationary" = "स्टेशनरी";
+"Pantry" = "पेंट्री";
+"Suggestion" = "सुझाव";
+"OpinionPoll" = "ओपिनियन पोल";
+"SalarySlip" = "वेतन पर्ची";
+"Myrequest" = "मेरा अनुरोध";
+"MyApprovals" = "मेरी स्वीकृति";
+"ToDayBirthDay" = "आज जन्मदिन है";
+"NewJoine" = "नए जुड़ने वाले";
+"NoBirthdaystoday" = "आज कोई जन्मदिन नहीं है";
+"NoNewJoinee" = "पिछले 30 दिनों से कोई नया सदस्य नहीं" ;
+"ChatBot" = "चैटबॉट" ;
+
+//चैटबॉट
+//पिछले 30 दिनों से कोई नया सदस्य नहीं है
+
+
+//+++++++++++ suggestion vc ++++++++++++++
+
+"sendasanonymous" = "बिना नाम के भेजें";
+"sendwithidentity"  = "पहचान के साथ भेजें";
+
+//+++++++++++ directory ++++++++++++++
+"Name" = "नाम";
+"Desigination" = "पद";
+
+//+++++++++++ directory childvc ++++++++++++++
+
+"EmergencyContactPerson" = "आपातकालीन संपर्क व्यक्ति";
+"EmergencyContactNumber" = "आपातकालीन संपर्क नंबर";
+"Close" = "बंद करें";
+
+//+++++++++++ directory Search ++++++++++++++
+"Search" = "खोज";
+"Filter" = "फ़िल्टर";

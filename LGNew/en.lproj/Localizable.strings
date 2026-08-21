@@ -1,0 +1,83 @@
+/* 
+  Localizable.strings
+  IOS
+
+  Created by Netcommlabs on 08/12/22.
+  
+*/
+//+++++++++++ Profile +++++++++++++
+"DepartmentKey" = "Department";
+"GradeKey" = "Grade";
+"DOB" = "Date Of Birth";
+"EmployeCode" = "Employee Code";
+"EmployeStatus" = "Employee Status";
+"ReportingManager" = "RM";
+"HOD" = "HOD";
+"DOJ" = "Date Of joining" ;
+"EmailId" = "Email Id";
+"MobileNumber" = "Mobile Number";
+"Location" = "Location";
+"EmployeeName" = " Employee Name" ;
+"EmployeeDetails" = " Employee Details" ;
+"Profile" = "Profile" ;
+"Gender" = "Gender" ;
+"BloodGroup" = "Blood Group";
+"ContactDetails" = " Contact Details";
+"OtherDetails" = " Other Details";
+//+++++++++++++++++++++++++++++++++++
+
+//+++++++++++ Home VC ++++++++++++++
+"PunchInOut" = "Punch In Out";
+"PunchInt" = "Punch In";
+"PunchOut" = "Punch Out";
+"LeaveAndRegularasation" = "Leave & Regularisation";
+"Leave" = "Leave  ";
+"CompOff" = "Comp Off";
+"ShortLeave" = " Short Leave";
+"Regularsation" = "Regularization";
+"Management" = "Management";
+"Directory" = "Directory";
+"Attendance" = "Attendance";
+"MyTeam" = "My Team";
+"Gallery" = "Gallery";
+"Anniversary" = "Anniversary";
+"Birthday" = "Birthday";
+
+"Notes" = "Notes";
+"Adminservices" = "Admin Services";
+"HelpDesk" = "Help Desk";
+"ConferenceRomm" = "Conference Room";
+"Stationary" = "Stationery";
+"Pantry" = "Pantry";
+"Suggestion" = "Suggestion";
+"OpinionPoll" = "Opinion poll";
+"SalarySlip" = "Salary Slip";
+"Myrequest" = "My Request";
+"MyApprovals" = "My Approvals";
+"ToDayBirthDay" = "Today's Birthday";
+"NewJoine" = "New Joinee";
+"NoBirthdaystoday" = "No Birthdays today";
+"NoNewJoinee" = "No New Joinee For Last 30 Days" ;
+"ChatBot" = "Chat Bot" ;
+
+//चैटबॉट
+
+
+//+++++++++++ suggestion vc ++++++++++++++
+
+"sendasanonymous" = "send as anonymous";
+"sendwithidentity"  = "send with identity";
+
+//+++++++++++ directory ++++++++++++++
+"Name" = "Name";
+"Desigination" = "Designation";
+
+//+++++++++++ directory childvc ++++++++++++++
+
+"EmergencyContactPerson" = "Emergency Contact Person";
+"EmergencyContactNumber" = "Emergency Contact Number";
+"Close" = "Close";
+
+//+++++++++++ directory Search ++++++++++++++
+"Search" = "Search";
+"Filter" = "Filter";
