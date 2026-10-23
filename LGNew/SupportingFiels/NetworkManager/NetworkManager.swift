@@ -41,10 +41,7 @@ class Networkmanager {
         return updatedParameters
     }
 
-    class func postRequest(vv: UIView,
-                           remainingUrl: String,
-                           parameters: [String: Any],
-                           completion: @escaping ((_ data: JSON, _ responseData: Foundation.Data) -> Void)) {
+    class func postRequest(vv: UIView,remainingUrl: String,parameters: [String: Any],completion: @escaping ((_ data: JSON, _ responseData: Foundation.Data) -> Void)) {
         
         CustomActivityIndicator.sharedInstance.showActivityIndicator(uiView: vv)
         
@@ -60,11 +57,22 @@ class Networkmanager {
             CustomActivityIndicator.sharedInstance.hideActivityIndicator(uiView: vv)
             return
         }
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        
+        print("JWT Token : ", token)
+        
+        // MARK: - Headers
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(token)",
+            "Content-Type": "application/json"
+        ]
         
         session.request(completeURLString,
                         method: .post,
                         parameters: finalParameters,
-                        encoding: JSONEncoding.default)
+                        encoding: JSONEncoding.default,
+                        headers: headers)
         .responseDecodable(of: JSON.self) { response in
             
             CustomActivityIndicator.sharedInstance.hideActivityIndicator(uiView: vv)

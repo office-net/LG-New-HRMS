@@ -109,16 +109,6 @@ final class SSLPublicKeyTrustEvaluator: ServerTrustEvaluating {
     private let pinnedHashes: Set<String>
     private let performDefaultValidation: Bool
 
-    /// - Parameters:
-    ///   - pinnedHashes: Base64-encoded SHA-256 SPKI hashes that are acceptable
-    ///     for this host. Supports multiple entries so a "current" and
-    ///     "backup/next" key can both be trusted at once (safe rotation).
-    ///   - performDefaultValidation: When `true` (default, and strongly
-    ///     recommended), Apple's own trust evaluation — chain validity,
-    ///     expiration, trusted root, hostname match — runs BEFORE our SPKI
-    ///     check. Pinning only ever narrows trust further; it must never be
-    ///     the only check, or a technically-invalid chain with a "correct"
-    ///     key could still be accepted.
     init(pinnedHashes: [String], performDefaultValidation: Bool = true) {
         self.pinnedHashes = Set(pinnedHashes)
         self.performDefaultValidation = performDefaultValidation
@@ -127,11 +117,6 @@ final class SSLPublicKeyTrustEvaluator: ServerTrustEvaluating {
     func evaluate(_ trust: SecTrust, forHost host: String) throws {
         Logger.ssl("Evaluating host: \(host)")
 
-        // STEP 1 — Apple Trust Validation (REQUIRED FIRST).
-        // Confirms: chain chains up to a trusted root, no certificate in the
-        // chain is expired/not-yet-valid, and the leaf's SAN/CN matches `host`.
-        // If this fails, the connection is rejected immediately — pinning
-        // never gets a chance to "override" a broken chain.
         if performDefaultValidation {
             do {
                 try trust.af.performDefaultValidation(forHost: host)
@@ -142,11 +127,6 @@ final class SSLPublicKeyTrustEvaluator: ServerTrustEvaluating {
         }
         Logger.ssl("Apple default trust validation passed")
 
-        // STEP 2 — Walk every certificate in the now-validated chain (leaf +
-        // intermediates). Checking the whole chain — not just index 0 — is
-        // what makes certificate ROTATION safe: while the server is mid-swap
-        // between an old and new leaf certificate, at least one certificate's
-        // key will still match one of our pins.
         guard
             let certificateChain = SecTrustCopyCertificateChain(trust) as? [SecCertificate],
             !certificateChain.isEmpty

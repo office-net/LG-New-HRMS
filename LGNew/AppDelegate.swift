@@ -21,6 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,CLLocationManagerDelegate
         IQKeyboardManager.shared.resignOnTouchOutside = true
         IQKeyboardManager.shared.keyboardDistance = 10.0       // var timer = Timer.scheduledTimer(timeInterval: TimeInterval(n), target: self, selector: #selector(getLocation), userInfo: nil, repeats: true)
       //  getUserLocation()
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        print("Old Token : \(token)")
+        if isJWTTokenValid(token)
+        {
+            print("✅ Token is still valid (within 12 hours)")
+        }
+        else
+        {
+            print("❌ Token expired (more than 12 hours old)")
+            getUserToken()
+        }
         return true
     }
     
@@ -33,6 +44,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,CLLocationManagerDelegate
     
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         
+    }
+    
+    func getUserToken()
+    {
+        guard let EmpCode = UserDefaults.standard.object(forKey: "EmpCode") as? String else {return}
+        let parameters = ["UserCode":EmpCode]
+        Networkmanager2.postRequest(remainingUrl: "gENJWTToken", parameters: parameters) { (response, data) in
+            let  token = response.stringValue
+            print("New Token : \(token)")
+            UserDefaults.standard.set(token, forKey: "token")
+        }
     }
     
     
@@ -156,6 +178,62 @@ extension AppDelegate
             
             }
 
+        }
+    }
+    
+    
+    
+    func isJWTTokenValid(_ token: String) -> Bool
+    {
+        let parts = token.split(separator: ".")
+        guard parts.count == 3 else
+        {
+            print("❌ Invalid JWT token format")
+            return false
+        }
+
+        let payloadPart = parts[1]
+        var base64 = String(payloadPart)
+            .replacingOccurrences(of: "-", with: "+")
+            .replacingOccurrences(of: "_", with: "/")
+        while base64.count % 4 != 0
+        {
+            base64.append("=")
+        }
+
+        guard let payloadData = Data(base64Encoded: base64),
+              let payloadJSON = try? JSONSerialization.jsonObject(with: payloadData, options: []),
+              let payloadDict = payloadJSON as? [String: Any] else
+        {
+            print("❌ Failed to decode payload")
+            return false
+        }
+
+        guard let exp = payloadDict["exp"] as? Double else
+        {
+            print("⚠️ No 'exp' (expiry) field found in JWT")
+            return false
+        }
+
+        let expiryDate = Date(timeIntervalSince1970: exp)
+        let currentDate = Date()
+        let remainingTime = expiryDate.timeIntervalSince(currentDate)
+        let hoursLeft = Int(remainingTime / 3600)
+        let minutesLeft = Int((remainingTime.truncatingRemainder(dividingBy: 3600)) / 60)
+        if remainingTime <= 0
+        {
+            print("❌ Token expired \(abs(hoursLeft))h \(abs(minutesLeft))m ago")
+            return false
+        }
+        else if remainingTime <= 2 * 60 * 60
+        {
+            print("⚠️ Token will expire soon (in \(hoursLeft)h \(minutesLeft)m)")
+            return false
+        }
+        else
+        {
+            print("✅ Token valid (expires in \(hoursLeft)h \(minutesLeft)m)")
+            return true
         }
     }
 }

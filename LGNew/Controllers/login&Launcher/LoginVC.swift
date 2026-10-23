@@ -51,16 +51,16 @@ class LoginVC: UIViewController {
         
         
         if let Language = UserDefaults.standard.string(forKey: "Language") {
-        if Language == "English"
+            if Language == "English"
             {
-               
-              self.Translate(index: 0)
-            
+                
+                self.Translate(index: 0)
+                
             }
             else
             {
                 
-               self.Translate(index: 1)
+                self.Translate(index: 1)
                 
             }
         }
@@ -83,10 +83,10 @@ class LoginVC: UIViewController {
             self.showAlert(message: Please_Enter_Password)
         }
         else {
-         
+            
             SignApi()
             
-            }
+        }
         
         
     }
@@ -166,13 +166,14 @@ class LoginVC: UIViewController {
                 {
                     
                 case .success(let value):
-                        let json = JSON(value)
-                        print(json)
+                    let json = JSON(value)
+                    print(json)
                     let  ChangePWDDATE = json["ChangePwdDate"].stringValue
-                                       
-                     UserDefaults.standard.set(ChangePWDDATE, forKey: "ChangePWDDate")
-                        let  UserID = json["UserID"].intValue
-                        if UserID != 0 {
+                    
+                    UserDefaults.standard.set(ChangePWDDATE, forKey: "ChangePWDDate")
+                    let  UserID = json["UserID"].intValue
+                    if UserID != 0 {
+                        
                         CustomActivityIndicator.sharedInstance.showActivityIndicator(uiView: self.view)
                         let Attendanceinput = json["AttendanceInput"].stringValue
                         UserDefaults.standard.set(Attendanceinput, forKey: "AttendanceInput")
@@ -289,19 +290,9 @@ class LoginVC: UIViewController {
                         
                         UserDefaults.standard.set("True", forKey: "IsLogin")
                         
+                        self.getUserToken(ResponseMain: json)
                         
-                            if json["ChangePwdDate"].stringValue == "" {
-                                print("calkndalsbfdffnjdnfjjfnffnjnf")
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                       let mainTabBarController = storyboard.instantiateViewController(identifier: "ChangePasswordVC")
-                                       (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
-                            }
-                            else {
-                                print("No Need to change Password")
-                                DispatchQueue.main.async {
-                                    self.SendToHome()
-                                }
-                            }
+                        
                     }
                     else{
                         
@@ -328,6 +319,23 @@ class LoginVC: UIViewController {
     }
     
     
+    func getUserToken(ResponseMain:JSON)
+    {
+        let parameters = ["UserCode":ResponseMain["EmpCode"].stringValue]
+        Networkmanager2.postRequest(remainingUrl: "gENJWTToken", parameters: parameters) { (response, data) in
+            let  token = response.stringValue
+            print("New Token : \(token)")
+            UserDefaults.standard.set(token, forKey: "token")
+            
+            if ResponseMain["ChangePwdDate"].stringValue.isEmpty {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(identifier: "ChangePasswordVC")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+            } else {
+                self.SendToHome()
+            }
+        }
+    }
     
     
     
@@ -340,13 +348,13 @@ extension LoginVC
 {
     func Translate(index:Int)
     {
-       if index == 0
+        if index == 0
         {
             TLogin.text = "Login Into Your Account"
             CaraftedBY.text = "Crafted By"
             NetcomLabs.text = "Netcomm Labs Pvt Ltd"
             Version.text = "Version \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "")"
-            PleaseEnterEmpCode = "Please Enter User Name" 
+            PleaseEnterEmpCode = "Please Enter User Name"
             Please_Enter_Password = "Please Enter Password"
         }
         else
@@ -358,8 +366,8 @@ extension LoginVC
             txt_empcode.placeholder = "उपयोगकर्ता कोड"
             txt_pass.placeholder = "पासवर्ड"
             btn_signin.setTitle("लॉग इन करें", for: .normal)
-             PleaseEnterEmpCode = "कृपया उपयोगकर्ता कोड दर्ज करें"
-             Please_Enter_Password = "कृपया पासवर्ड दर्ज करें"
+            PleaseEnterEmpCode = "कृपया उपयोगकर्ता कोड दर्ज करें"
+            Please_Enter_Password = "कृपया पासवर्ड दर्ज करें"
             
         }
     }
