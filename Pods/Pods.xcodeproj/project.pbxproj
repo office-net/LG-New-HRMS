@@ -56,6 +56,11 @@
 		09D303C994021652DF841C463DBD1DC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B0CCC31CEB14A9BA07D4F7707C473B0 /* Foundation.framework */; };
 		0AFAE67ABA4A755EDD0716B4FFE1B1BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B0CCC31CEB14A9BA07D4F7707C473B0 /* Foundation.framework */; };
 		0B0E6CECDF516BC83756C1D5515A725B /* SDAsyncBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0390EF59EF114123AC126B7F2FD3EC93 /* SDAsyncBlockOperation.m */; };
+		0B7580AF30930F8300C63968 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0B7580AE30930F8300C63968 /* PrivacyInfo.xcprivacy */; };
+		0B7580B130930FBD00C63968 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0B7580B030930FBD00C63968 /* PrivacyInfo.xcprivacy */; };
+		0B7580B33093101100C63968 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0B7580B23093101100C63968 /* PrivacyInfo.xcprivacy */; };
+		0B7580B53093104000C63968 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0B7580B43093104000C63968 /* PrivacyInfo.xcprivacy */; };
+		0B7580B73093105400C63968 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0B7580B63093105400C63968 /* PrivacyInfo.xcprivacy */; };
 		0BA3775C465EF5F1F49F0D7DE5148039 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC952227E285324A8EBEC673AF8B04FB /* Alamofire.swift */; };
 		0BF739895142C4885CE37C54E38ED3BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3667D5BADADB78780DBC6C390547F991 /* UIKit.framework */; };
 		0CDED47F12BBA7675461BFBB000EAD5B /* IQTextView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D84A92451C4ED4BEBCF66160BD27F2 /* IQTextView-dummy.m */; };
@@ -725,6 +730,11 @@
 		0A7F8414E6DB2CE5C4D3233A44418306 /* SDImageGraphics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageGraphics.h; path = SDWebImage/Core/SDImageGraphics.h; sourceTree = "<group>"; };
 		0AB0801289BA38FCE3C55B1334A20CCF /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		0B6CB843B869DA6844B1B05847FD52AA /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Sources/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
+		0B7580AE30930F8300C63968 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		0B7580B030930FBD00C63968 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		0B7580B23093101100C63968 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		0B7580B43093104000C63968 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		0B7580B63093105400C63968 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		0B84DC966F9398912AF4FBAE3AF4035A /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/Core/SDWebImageOperation.h; sourceTree = "<group>"; };
 		0BBEC5ADA43C7AEB30944F39110657D3 /* IQTextView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQTextView-prefix.pch"; sourceTree = "<group>"; };
 		0BDA1A6923891E9F1EC2412283C57725 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Sources/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
@@ -1656,6 +1666,7 @@
 				9302EE08319C304183BF9C10E4BEC230 /* Typealiases.swift */,
 				76D6F69FCD5BE01498D39EA9C15D004F /* UILayoutSupport+Extensions.swift */,
 				53BF579F0C65CBEE7CE0477CC05E6693 /* Support Files */,
+				0B7580B43093104000C63968 /* PrivacyInfo.xcprivacy */,
 			);
 			path = SnapKit;
 			sourceTree = "<group>";
@@ -1916,6 +1927,7 @@
 			children = (
 				5F8E64B99EB0085BA4AB9EF8A4C4057F /* SwiftyJSON.swift */,
 				76DF8A6DE3BC41C54F71D904EDA08C7B /* Support Files */,
+				0B7580B63093105400C63968 /* PrivacyInfo.xcprivacy */,
 			);
 			path = SwiftyJSON;
 			sourceTree = "<group>";
@@ -1929,6 +1941,7 @@
 				63E5454A81F5B30E500F2DE593447CB7 /* Resign */,
 				4EDCC8D7B8999D0403B0E2F0CC2FF1F6 /* Resources */,
 				EE02B2A6E3B171F2D06044ED893D6452 /* Support Files */,
+				0B7580B030930FBD00C63968 /* PrivacyInfo.xcprivacy */,
 			);
 			path = IQKeyboardManagerSwift;
 			sourceTree = "<group>";
@@ -1938,6 +1951,7 @@
 			children = (
 				C60764D3A60B90E693E0C788F85B0F0F /* Core */,
 				641CA924D40AEBC5861B447BEEA29FF7 /* Support Files */,
+				0B7580B23093101100C63968 /* PrivacyInfo.xcprivacy */,
 			);
 			path = SDWebImage;
 			sourceTree = "<group>";
@@ -2360,6 +2374,7 @@
 				CEAEFE572065E94B29A00F40A51BA26E /* WebSocketRequest.swift */,
 				48774709137E5EA8B5FB316F35406C23 /* Resources */,
 				B5245DB7A7E01FE12CE929863D7E5405 /* Support Files */,
+				0B7580AE30930F8300C63968 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Alamofire;
 			sourceTree = "<group>";
@@ -3132,6 +3147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7580AF30930F8300C63968 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3139,6 +3155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7580B33093101100C63968 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3160,6 +3177,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7580B53093104000C63968 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3181,6 +3199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7580B130930FBD00C63968 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3202,6 +3221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7580B73093105400C63968 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

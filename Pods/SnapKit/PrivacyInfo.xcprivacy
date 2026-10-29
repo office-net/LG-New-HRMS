@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<privacy>
+    <dict>
+        <key>NSPrivacyCollectedDataTypes</key>
+        <array/>
+        <key>NSPrivacyAccessedAPITypes</key>
+        <array/>
+        <key>NSPrivacyTrackingDomains</key>
+        <array/>
+        <key>NSPrivacyTracking</key>
+        <false/>
+    </dict>
+</privacy>

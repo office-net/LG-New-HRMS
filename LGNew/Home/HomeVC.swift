@@ -85,7 +85,7 @@ class HomeVC: UIViewController,reloadData{
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.allowsBackgroundLocationUpdates = true
+     //   locationManager.allowsBackgroundLocationUpdates = true
         
     }
  

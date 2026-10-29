@@ -117,7 +117,7 @@ extension AppDelegate
         locationManager?.startUpdatingLocation()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager?.allowsBackgroundLocationUpdates = true
+     //   locationManager?.allowsBackgroundLocationUpdates = true
         
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
